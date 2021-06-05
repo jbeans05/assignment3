@@ -9,7 +9,7 @@ router.get("/users", (req, res, next) =>{
 });
 
 router.get("/add-user", (req, res, next) =>{
-    res.render('addUser',{pageTitle: 'Add User', path:'/admin/add-user', activeAddUser:true});
+    res.render('addUser',{pageTitle: 'Add User', path:'/admin/add-user', activeAddUser:true,userCSS:true});
 });
 
 router.post("/addUser", (req, res, next) =>{

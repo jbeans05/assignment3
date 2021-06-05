@@ -1,7 +1,7 @@
 const express = require("express");
 const app = express();
 const path = require('path');
-const expressHbs = require('express-handlebars');
+//const expressHbs = require('express-handlebars');
 const adminData = require("./routes/admin");
 const shopRouters = require("./routes/shop");
 
@@ -13,9 +13,9 @@ app.use(express.json());
 // set for static file usage like css , image, font dll
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.engine('hbs', expressHbs({extname:'hbs', layoutsDir:"views/layouts", defaultLayout: 'main-layout.hbs'}));
-// set for global configuration
-app.set('view engine','hbs');
+//app.engine('hbs', expressHbs({extname:'hbs', layoutsDir:"views/layouts", defaultLayout: 'main-layout.hbs', extname:'hbs'}));
+//// set for global configuration
+app.set('view engine','ejs');
 app.set('views','views')
 
 

@@ -6,7 +6,14 @@ const adminData = require('./admin');
 
 shopRouter.get("/", (req, res, next) =>{
     const users = adminData.users
-    res.render('shop',{users: users, pageTitle: 'Shop', activeShop: true,path:'/', isHasUser: users.length > 0 ? true:false});  
+    res.render('shop',{
+        users: users, 
+        pageTitle: 'Shop', 
+        activeShop: true,
+        path:'/', 
+        isHasUser: users.length > 0 ,
+        productCSS:true
+    });  
 });
 
 
