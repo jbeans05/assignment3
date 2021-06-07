@@ -1,0 +1,31 @@
+<%- include('includes/header.ejs')%>
+    <link rel="stylesheet" href="/css/product.css">    
+</head>
+<body>
+    <%- include('includes/navigation.ejs')%>
+    <main>
+          
+        <% if(users.length > 0 ) {%>
+           <div class="grid">
+               <% for(user of users) { %>               
+               <article class="card__product-item">
+                    <header class="card__header">
+                       <h1 class="product__title"><%= user.title %></h1>
+                    </header>
+                    <div class="card__image">
+                        <img src="https://cdn.pixabay.com/photo/2016/11/29/07/22/bible-1868070_960_720.jpg", alt="book">
+                    </div>
+                    <div class="card__content">
+                        <h2 class="product__price">$19.11</h2>
+                        <p class="product__description">very intresting book</p>
+                    </div>
+                    <div class="card__actions">
+                        <button class="Butto">Add to Chart</button>
+                    </div>
+               </article>
+               <%}%>
+           </div>
+        <%}%>               
+    </main>
+</body>
+</html>

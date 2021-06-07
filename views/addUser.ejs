@@ -1,0 +1,17 @@
+<%- include('includes/header.ejs')%>
+<link rel="stylesheet" href="/css/user.css">   
+</head>
+<body>
+    <%- include('includes/navigation.ejs')%>
+    <main >
+        <form class="user-form" method="POST" action="/admin/addUser">   
+            <div class="form-control">
+                <label for="user">User</label>
+                <input type='text' name='user' id="user" />
+            </div>
+               
+            <button type='submit'>Add user</button>
+        </form>
+    </main>    
+</body>
+</html>
