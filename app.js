@@ -1,9 +1,9 @@
 const express = require("express");
 const app = express();
 const path = require('path');
-//const expressHbs = require('express-handlebars');
-const adminData = require("./routes/admin");
+const adminRoutes = require("./routes/admin");
 const shopRouters = require("./routes/shop");
+const errorHandling = require("./controllers/error")
 
 
 // load body parser for HTML request 
@@ -17,11 +17,9 @@ app.set('view engine','ejs');
 app.set('views','views')
 
 
-app.use("/admin",adminData.router);
+app.use("/admin",adminRoutes.router);
 app.use(shopRouters);
 
-app.use((req, res, next) => {
-    res.status(404).render("404",{pageTitle: 'Not Found'});
-})
+app.use(errorHandling.get404);
 
 app.listen(3000);
