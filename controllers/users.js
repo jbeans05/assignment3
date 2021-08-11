@@ -1,4 +1,4 @@
-const users = [];
+const Product = require('../models/product');
 
 exports.getAddUser = (req, res, next) =>{
     res.render('addUser',{
@@ -11,18 +11,22 @@ exports.getAddUser = (req, res, next) =>{
 
 
 exports.postAddUser = (req, res, next) =>{
-    users.push({title: req.body.user})
+    const product = new Product(req.body.user);
+    product.save();
     res.redirect("/") ;  
 }
 
 
-exports.getUser =  (req, res, next) =>{    
-    res.render('shop',{
-        users: users, 
-        pageTitle: 'Shop', 
-        activeShop: true,
-        path:'/', 
-        isHasUser: users.length > 0 ,
-        productCSS:true
-    });  
+exports.getUser =  (req, res, next) =>{   
+    Product.fetchAll((products) =>{
+        res.render('shop',{
+            users: products, 
+            pageTitle: 'Shop', 
+            activeShop: true,
+            path:'/', 
+            isHasUser: products.length > 0 ,
+            productCSS:true
+        });  
+    }); 
+    
 }
