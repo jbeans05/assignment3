@@ -1,16 +1,16 @@
-<%- include('includes/head.ejs') %>
+<%- include('../includes/head.ejs') %>
     
 </head>
 <body>
-    <%- include('includes/navigation.ejs') %>
+    <%- include('../includes/navigation.ejs') %>
     <main>
           
-        <% if(users.length > 0) { %>
+        <% if(prods.length > 0) { %>
            <div class="grid">
-               <% for (let user of users) { %>
+               <% for (let item of prods) { %>
                <article class="card__product-item">
                     <header class="card__header">
-                       <h1 class="product__title"><%= user.title %> </h1>
+                       <h1 class="product__title"><%= item.title %> </h1>
                     </header>
                     <div class="card__image">
                         <img src="https://cdn.pixabay.com/photo/2016/11/29/07/22/bible-1868070_960_720.jpg", alt="book">
@@ -28,4 +28,4 @@
         <% } else { %>
             <h1>No user Found</h1>
         <% } %>       
-<%- include('includes/end.ejs') %>
+<%- include('../includes/end.ejs') %>
