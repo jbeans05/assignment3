@@ -19,11 +19,15 @@ const getProductFormFile = cb =>{
 }
 
 module.exports = class Product{
-    constructor(t){
+    constructor(t, imageUrl,  price, description){
         this.title = t;
+        this.imageUrl =  imageUrl;       
+        this.price = price;
+        this.description = description;
     }
 
     save(){
+        this.id = Math.random().toString();
        getProductFormFile( products => {
             products.push(this);
             fs.writeFile(p, JSON.stringify(products), (err)=>{
@@ -34,5 +38,12 @@ module.exports = class Product{
 
     static fetchAll(cb){
        getProductFormFile(cb);
+    }
+
+    static findById(id, cb){
+        getProductFormFile(products => {
+            const product = products.find(p => p.id === id);
+            cb(product);
+        })
     }
 }

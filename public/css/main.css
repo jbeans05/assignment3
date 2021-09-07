@@ -36,3 +36,8 @@ main{padding: 1rem;}
 .main-header__item a.active {
     color: rgb(247, 16, 93);
 }
+
+
+.centered{
+    text-align: center;
+}

@@ -10,11 +10,13 @@
 }
 
 .form-control label,
-.form-control input{
+.form-control input,
+.form-control textarea{
     display: block;
     width: 100%;
 }
-.form-control input{
+.form-control input,
+.form-control textarea{
     border: 1px solid rgba(255, 217, 0, 0.808);
     font: inherit;
     border-radius: 5px;
